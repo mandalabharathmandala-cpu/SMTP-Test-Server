@@ -1,18 +1,24 @@
-import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import { BrowserRouter, NavLink, Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
 import History from "./pages/History";
 
 export default function App() {
   return (
     <BrowserRouter>
-      <nav>
-        <Link to="/">Home</Link>
-        <Link to="/history">History</Link>
-      </nav>
-      <Routes>
-        <Route path="/" element={<Home/>} />
-        <Route path="/history" element={<History/>} />
-      </Routes>
+      <div className="app-shell">
+        <nav className="top-nav">
+          <NavLink to="/" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+            Home
+          </NavLink>
+          <NavLink to="/history" className={({ isActive }) => `nav-link ${isActive ? "active" : ""}`}>
+            History
+          </NavLink>
+        </nav>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/history" element={<History />} />
+        </Routes>
+      </div>
     </BrowserRouter>
   );
 }
