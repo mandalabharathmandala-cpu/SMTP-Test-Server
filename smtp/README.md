@@ -1,0 +1,32 @@
+# SMTP Testing Platform
+
+A simple SMTP testing platform (React + Express + MongoDB) scaffolded for local development and Docker deployment.
+
+Quick start (Docker):
+
+```bash
+docker-compose up --build
+```
+
+Backend (local):
+
+```bash
+cd backend
+npm install
+cp .env.example .env
+npm run dev
+```
+
+Frontend (local):
+
+```bash
+cd frontend
+npm install
+npm run dev
+```
+
+Project layout:
+
+ - backend/: Express server, Mongoose models, Nodemailer service
+ - frontend/: Vite + React UI
+ - docker-compose.yml: Mongo, backend, frontend

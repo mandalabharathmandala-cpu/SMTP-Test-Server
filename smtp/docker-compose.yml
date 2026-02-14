@@ -1,0 +1,24 @@
+version: "3.8"
+
+services:
+  mongo:
+    image: mongo
+    container_name: smtp_mongo
+    ports:
+      - "27017:27017"
+
+  backend:
+    build: ./backend
+    ports:
+      - "5000:5000"
+    environment:
+      - MONGO_URI=MONGO_URI=mongodb+srv://mandalabharathmandala_db_user:lzWL0iWpMMhKBkbd@cluster0.xywruev.mongodb.net/
+    depends_on:
+      - mongo
+
+  frontend:
+    build: ./frontend
+    ports:
+      - "5173:5173"
+    depends_on:
+      - backend
